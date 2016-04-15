@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="group36.cpr">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".StartCPRActivity1"
+            android:label="CPRView1"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".StartCPRActivity2"
+            android:label="CPRView2"
+            android:parentActivityName=".StartCPRActivity1"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".StartCPRActivity3"
+            android:label="CPRView3"
+            android:parentActivityName=".StartCPRActivity2"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".TutorialActivity1"
+            android:label="TutorialView1"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".TutorialActivity2"
+            android:label="TutorialView2"
+            android:parentActivityName=".TutorialActivity1"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".TutorialActivity3"
+            android:label="TutorialView3"
+            android:parentActivityName=".TutorialActivity2"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".TutorialActivity4"
+            android:label="TutorialView4"
+            android:parentActivityName=".TutorialActivity3"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".TutorialActivity5"
+            android:label="TutorialView5"
+            android:parentActivityName=".TutorialActivity4"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".HistoryMainActivity"
+            android:label="HistoryMainView"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".HistoryDetailedActivity"
+            android:label="HistoryDetailedView"
+            android:parentActivityName=".HistoryMainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <service android:name=".PhoneToWatchService" />
+        <service android:name=".PhoneListenerService"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

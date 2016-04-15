@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    tools:context="group36.cpr.MainActivity">
+
+    <Button
+        android:id="@+id/start_cpr_activity_1_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start CPR"/>
+
+    <Button
+        android:id="@+id/my_history_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My History"/>
+
+    <Button
+        android:id="@+id/tutorial_activity_1_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tutorial"/>
+
+</RelativeLayout>
