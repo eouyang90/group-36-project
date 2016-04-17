@@ -9,7 +9,7 @@
         android:scaleType="centerCrop"
         android:padding="0dp"
         android:id="@+id/CPR1Background"
-        android:src="@drawable/Select_Mode_View_Mobile"
+        android:src="@drawable/select_1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 </LinearLayout>
