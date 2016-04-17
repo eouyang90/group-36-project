@@ -5,5 +5,5 @@
 * Austin Le
 * Jiayuan Chen
 * Tianbi Wang
-* 
+* Elena Ouyang
 * 
