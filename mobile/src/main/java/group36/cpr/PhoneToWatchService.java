@@ -48,15 +48,15 @@ public class PhoneToWatchService extends Service {
             Bundle extras = intent.getExtras();
 
             // Create some String of data to send to watch from the above Bundle.
-            final String data = "";
+            final String data = extras.getString("mode");
 
-            Log.d("PhoneToWatchService", "Sending data = " + data);
+            Log.d("PhoneToWatchService", "Sending mode = " + data);
 
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     mApiClient.connect();
-                    sendMessage("", data);
+                    sendMessage("/mode", data);
                 }
             }).start();
         }
@@ -64,6 +64,7 @@ public class PhoneToWatchService extends Service {
         return START_STICKY;
     }
 
+    @Override
     public IBinder onBind(Intent intent) {
         return null;
     }

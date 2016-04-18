@@ -3,7 +3,6 @@ package group36.cpr;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -20,11 +19,20 @@ public class StartCPRActivity4 extends Activity {
         startCPRButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //reset watch
+                Intent watchIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+                watchIntent.putExtra("mode", "CPR_stop");
+                startService(watchIntent);
+
                 Intent sendIntent;
                 sendIntent = new Intent(getBaseContext(), HistoryDetailedActivity.class);
-                Log.d("MainActivity", "Starting up StartCPRActivity1");
                 startActivity(sendIntent);
             }
         });
+
+        //start watch
+        Intent watchIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+        watchIntent.putExtra("mode", "CPR_start");
+        startService(watchIntent);
     }
 }

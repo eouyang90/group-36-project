@@ -1,8 +1,6 @@
 package group36.cpr;
 
-import android.app.Service;
 import android.content.Intent;
-import android.util.Log;
 
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
@@ -14,18 +12,33 @@ import java.nio.charset.StandardCharsets;
  */
 public class WatchListenerService extends WearableListenerService {
     public static final String DATA = "group36.cpr.DATA";
+    private static final String MODE = "/mode";
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
         String data = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
-        Intent i = getApplicationContext().getPackageManager()
-                .getLaunchIntentForPackage(getApplicationContext().getPackageName() );
+        if( messageEvent.getPath().equalsIgnoreCase( MODE ) ) {
+            String mode = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
-        // The Intent.FLAG_ACTIVITY_CLEAR_TOP flag restarts the activity completely from scratch.
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        i.putExtra(DATA, data);
-        Log.d("WatchListenerService", "message");
-        startActivity(i);
+            if (mode.equals("CPR_start")) {
+                Intent i = new Intent(this, CompressionActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            } else if (mode.equals("CPR_stop")) {
+                Intent i = new Intent(this, MainActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            } else if (mode.equals("try_compression")) {
+                Intent i = new Intent(this, CompressionActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            } else if (mode.equals("try_breath")) {
+                Intent i = new Intent(this, BreathActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        }
+        //Intent i = getApplicationContext().getPackageManager().getLaunchIntentForPackage(getApplicationContext().getPackageName());
     }
 }

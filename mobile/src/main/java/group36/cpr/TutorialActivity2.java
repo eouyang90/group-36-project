@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 /**
@@ -24,6 +25,17 @@ public class TutorialActivity2 extends Activity {
                 sendIntent = new Intent(getBaseContext(), TutorialActivity4.class);
                 Log.d("MainActivity", "Starting up StartCPRActivity1");
                 startActivity(sendIntent);
+            }
+        });
+
+        Button myHistoryButton = (Button) findViewById(R.id.try_compression);
+        myHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //start watch
+                Intent watchIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+                watchIntent.putExtra("mode", "try_compression");
+                startService(watchIntent);
             }
         });
     }
