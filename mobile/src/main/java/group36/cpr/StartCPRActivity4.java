@@ -10,13 +10,13 @@ import android.widget.ImageButton;
 /**
  * Created by austinhle on 4/15/16.
  */
-public class HistoryMainActivity extends Activity {
+public class StartCPRActivity4 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.history_main_activity);
+        setContentView(R.layout.activity_start_cpr4);
 
-        ImageButton startCPRButton = (ImageButton) findViewById(R.id.historyBackground);
+        ImageButton startCPRButton = (ImageButton) findViewById(R.id.CPR4Background);
         startCPRButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,6 +26,5 @@ public class HistoryMainActivity extends Activity {
                 startActivity(sendIntent);
             }
         });
-
     }
 }

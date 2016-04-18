@@ -8,107 +8,93 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.NoTitleBar">
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".StartCPRActivity1"
+            android:configChanges="orientation|screenSize"
             android:label="CPRView1"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".StartCPRActivity2"
+            android:configChanges="orientation|screenSize"
             android:label="CPRView2"
             android:parentActivityName=".StartCPRActivity1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".StartCPRActivity3"
+            android:configChanges="orientation|screenSize"
             android:label="CPRView3"
             android:parentActivityName=".StartCPRActivity2"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".TutorialActivity1"
+            android:configChanges="orientation|screenSize"
             android:label="TutorialView1"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".TutorialActivity2"
+            android:configChanges="orientation|screenSize"
             android:label="TutorialView2"
             android:parentActivityName=".TutorialActivity1"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".TutorialActivity3"
+            android:configChanges="orientation|screenSize"
             android:label="TutorialView3"
             android:parentActivityName=".TutorialActivity2"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".TutorialActivity4"
+            android:configChanges="orientation|screenSize"
             android:label="TutorialView4"
             android:parentActivityName=".TutorialActivity3"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".TutorialActivity5"
+            android:configChanges="orientation|screenSize"
             android:label="TutorialView5"
             android:parentActivityName=".TutorialActivity4"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".HistoryMainActivity"
+            android:configChanges="orientation|screenSize"
             android:label="HistoryMainView"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".HistoryDetailedActivity"
+            android:configChanges="orientation|screenSize"
             android:label="HistoryDetailedView"
             android:parentActivityName=".HistoryMainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation|screenSize">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <service android:name=".PhoneToWatchService" />
-        <service android:name=".PhoneListenerService"
+        <service
+            android:name=".PhoneListenerService"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
             </intent-filter>
         </service>
 
+        <activity
+            android:name=".StartCPRActivity4"
+            android:label="@string/title_activity_start_cpr4"></activity>
     </application>
 
 </manifest>

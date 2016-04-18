@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
 
@@ -15,6 +16,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ImageButton startCPRButton = (ImageButton) findViewById(R.id.mainViewBackground);
+        startCPRButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent;
+                sendIntent = new Intent(getBaseContext(), StartCPRActivity1.class);
+                Log.d("MainActivity", "Starting up StartCPRActivity1");
+                startActivity(sendIntent);
+            }
+        });
 
 //        Button startCPRButton = (Button) findViewById(R.id.start_cpr_activity_1_button);
 //        startCPRButton.setOnClickListener(new View.OnClickListener() {
@@ -26,25 +38,25 @@ public class MainActivity extends Activity {
 //            }
 //        });
 //
-//        Button myHistoryButton = (Button) findViewById(R.id.my_history_button);
-//        myHistoryButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent sendIntent = new Intent(getBaseContext(), HistoryMainActivity.class);
-//                Log.d("MainActivity", "Starting up StartCPRActivity1");
-//                startActivity(sendIntent);
-//            }
-//        });
+        Button myHistoryButton = (Button) findViewById(R.id.history);
+        myHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent(getBaseContext(), HistoryMainActivity.class);
+                Log.d("MainActivity", "Starting up StartCPRActivity1");
+                startActivity(sendIntent);
+            }
+        });
 //
-//        Button tutorialButton = (Button) findViewById(R.id.tutorial_activity_1_button);
-//        tutorialButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent sendIntent = new Intent(getBaseContext(), TutorialActivity1.class);
-//                Log.d("MainActivity", "Starting up StartCPRActivity1");
-//                startActivity(sendIntent);
-//            }
-//        });
+        Button tutorialButton = (Button) findViewById(R.id.tutorial);
+        tutorialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent(getBaseContext(), TutorialActivity1.class);
+                Log.d("MainActivity", "Starting up StartCPRActivity1");
+                startActivity(sendIntent);
+            }
+        });
     }
 
     @Override
