@@ -11,4 +11,10 @@
         android:src="@drawable/history_detail"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+        
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:id="@+id/graph"
+        />
 </LinearLayout>
