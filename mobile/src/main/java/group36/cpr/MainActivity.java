@@ -28,16 +28,6 @@ public class MainActivity extends Activity {
             }
         });
 
-//        Button startCPRButton = (Button) findViewById(R.id.start_cpr_activity_1_button);
-//        startCPRButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent sendIntent = new Intent(getBaseContext(), StartCPRActivity1.class);
-//                Log.d("MainActivity", "Starting up StartCPRActivity1");
-//                startActivity(sendIntent);
-//            }
-//        });
-//
         Button myHistoryButton = (Button) findViewById(R.id.history);
         myHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,25 +49,25 @@ public class MainActivity extends Activity {
         });
     }
 
+    //handle option selection
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        getActionBar().setDisplayHomeAsUpEnabled(false);
+        menu.findItem(R.id.home).setIcon(R.drawable.home);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.home:
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
