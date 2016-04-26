@@ -7,24 +7,40 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 
 /**
  * Created by austinhle on 4/15/16.
  */
 public class StartCPRActivity2 extends Activity {
+    private String selection = "adult";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cpr_activity_2);
+        Intent intent = getIntent();
+        selection = intent.getStringExtra("selection"); //adult, child, infant
 
-        ImageButton startCPRButton = (ImageButton) findViewById(R.id.CPR2Background);
-        startCPRButton.setOnClickListener(new View.OnClickListener() {
+        //yes
+        ImageView env_yes = (ImageView) findViewById(R.id.environment_yes);
+        env_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sendIntent;
-                sendIntent = new Intent(getBaseContext(), StartCPRActivity3.class);
-                Log.d("MainActivity", "Starting up StartCPRActivity1");
+                Intent sendIntent = new Intent(getBaseContext(), StartCPRActivity3.class);
+                sendIntent.putExtra("selection", selection);
+                Log.d("StartCPRActivity2", "selected yes, send selection");
+                startActivity(sendIntent);
+            }
+        });
+
+        //no
+        ImageView env_no = (ImageView) findViewById(R.id.environment_no);
+        env_no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent(getBaseContext(), MainActivity.class);
+                Log.d("StartCPRActivity2", "selected no, return to main view");
                 startActivity(sendIntent);
             }
         });
