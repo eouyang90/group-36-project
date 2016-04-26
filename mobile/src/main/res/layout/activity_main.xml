@@ -5,33 +5,59 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/background1"
     tools:context="group36.cpr.MainActivity">
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:padding="0dp"
-        android:id="@+id/mainViewBackground"
-        android:onClick="onClick"
-        android:src="@drawable/mobile_main"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:text="Tutorial"
         android:id="@+id/tutorial"
+        android:textSize="20dp"
+        android:background="#3F6858"
+        android:layout_marginBottom="50dp"
+        android:textAllCaps="false"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-
+        android:layout_alignStart="@+id/startCPR" />
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:radius="50dp"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
+        android:background="#77BFA3"
+        android:textSize="35dp"
+        android:text="Start CPR"
+        android:id="@+id/startCPR"
+        android:textAllCaps="false"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/tutorial"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:text="History"
+        android:textSize="20dp"
+        android:background="#3F6858"
         android:id="@+id/history"
+        android:textAllCaps="false"
         android:layout_alignTop="@+id/tutorial"
-        android:layout_toEndOf="@+id/tutorial" />
+        android:layout_alignEnd="@+id/startCPR" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#3F6858"
+        android:text="CPR training so you never forget"
+        android:layout_marginBottom="40dp"
+        android:textSize="20dp"
+        android:layout_above="@+id/startCPR"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView" />
+
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp" />
 </RelativeLayout>
