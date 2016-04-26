@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:padding="0dp"
-        android:id="@+id/CPR1Background"
-        android:src="@drawable/select_1"
-        android:layout_alignParentTop="true"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background1">
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_above="@+id/child_select"
+        android:src="@drawable/adult_select"
+        android:id="@+id/adult_select"
+        android:layout_gravity="center_vertical" />
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:src="@drawable/child_select"
+        android:id="@+id/child_select"
+        android:layout_above="@+id/infant_select"
+        android:layout_alignParentStart="true" />
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"
+        android:gravity="bottom"
+        android:src="@drawable/infant_select"
+        android:id="@+id/infant_select"
+        android:layout_gravity="bottom" />
+    <TextView
+        android:layout_width="280dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:textColor="#315044"
+        android:textSize="40dp"
+        android:layout_marginBottom="30dp"
+        android:text="Who are you performing CPR on?"
+        android:layout_above="@+id/adult_select"
         android:layout_centerHorizontal="true" />
-</LinearLayout>
+</RelativeLayout>
