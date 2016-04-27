@@ -2,7 +2,6 @@ package group36.cpr;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -68,7 +67,7 @@ public class StartCPRActivity3 extends Activity {
             public void onClick(View v) {
                 if (state == false) {
                     state = true;
-                    start_CPR_button.setBackgroundColor(Color.parseColor("#EB7B72"));
+                    start_CPR_button.setBackgroundResource(R.drawable.rounded_red);
                     start_CPR_button.setText("Stop " + selection + " CPR");
 
                     //start watch

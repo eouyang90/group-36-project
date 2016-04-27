@@ -64,7 +64,7 @@
     <Button
         android:layout_width="290dp"
         android:layout_height="114dp"
-        android:background="#77BFA3"
+        android:background="@drawable/rounded_light"
         android:textSize="34dp"
         android:text="Start default CPR"
         android:id="@+id/startCPR"
