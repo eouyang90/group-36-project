@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:background="@color/background1">
     <ImageView
-        android:layout_width="360dp"
+        android:layout_width="364dp"
+        android:layout_marginLeft="-2dp"
         android:layout_height="100dp"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
@@ -14,7 +15,8 @@
         android:layout_above="@+id/environment_no"
         android:layout_alignParentStart="true" />
     <ImageView
-        android:layout_width="360dp"
+        android:layout_width="364dp"
+        android:layout_marginLeft="-2dp"
         android:layout_height="100dp"
         android:scaleType="fitCenter"
         android:layout_alignParentBottom="true"

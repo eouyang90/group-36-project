@@ -23,8 +23,8 @@ public class StartCPRActivity1 extends Activity {
         adult_selection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sendIntent = new Intent(getBaseContext(), StartCPRActivity2.class);
-                sendIntent.putExtra("selection", "adult");
+                Intent sendIntent = new Intent(getBaseContext(), StartCPRActivity3.class);
+                sendIntent.putExtra("selection", "Adult");
                 Log.d("StartCPRActivity1", "Selected adult");
                 startActivity(sendIntent);
             }
@@ -35,8 +35,8 @@ public class StartCPRActivity1 extends Activity {
         child_selection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sendIntent = new Intent(getBaseContext(), StartCPRActivity2.class);
-                sendIntent.putExtra("selection", "child");
+                Intent sendIntent = new Intent(getBaseContext(), StartCPRActivity3.class);
+                sendIntent.putExtra("selection", "Child");
                 Log.d("StartCPRActivity1", "Selected child");
                 startActivity(sendIntent);
             }
@@ -47,8 +47,8 @@ public class StartCPRActivity1 extends Activity {
         infant_selection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sendIntent = new Intent(getBaseContext(), StartCPRActivity2.class);
-                sendIntent.putExtra("selection", "infant");
+                Intent sendIntent = new Intent(getBaseContext(), StartCPRActivity3.class);
+                sendIntent.putExtra("selection", "Infant");
                 Log.d("StartCPRActivity1", "Selected infant");
                 startActivity(sendIntent);
             }

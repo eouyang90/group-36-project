@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent sendIntent;
-                sendIntent = new Intent(getBaseContext(), StartCPRActivity1.class);
+                sendIntent = new Intent(getBaseContext(), StartCPRActivity2.class);
                 Log.d("MainActivity", "Start CPR");
                 startActivity(sendIntent);
             }
