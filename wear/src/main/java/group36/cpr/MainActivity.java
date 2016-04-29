@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.wearable.activity.WearableActivity;
+import android.util.Log;
 
 public class MainActivity extends WearableActivity {
     @Override
@@ -11,15 +12,18 @@ public class MainActivity extends WearableActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Start up the compression activity after 1 second delay.
+        Log.d("onCreate", "Started MainActivity");
+
+        // Start up the compression activity after 5 second delay.
         Runnable mLaunchTask = new Runnable() {
             public void run() {
                 Intent i = new Intent(getApplicationContext(), CompressionActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
             }
         };
 
         Handler mHandler = new Handler();
-        mHandler.postDelayed(mLaunchTask, 1000);
+        mHandler.postDelayed(mLaunchTask, 5000);
     }
 }

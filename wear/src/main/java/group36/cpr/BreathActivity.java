@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BreathActivity extends WearableActivity {
-    private final int UPDATE_INTERVAL_MS = 1500; // Update every second.
+    private final int UPDATE_INTERVAL_MS = 1500; // Update every 1.5 seconds.
     private final int NUM_BREATHS = 2;
 
     // The following variables are used for updating the background status image
@@ -41,35 +41,27 @@ public class BreathActivity extends WearableActivity {
     }
 
     public void updateStatus() {
-//        ImageView bg = (ImageView) findViewById(R.id.breaths_bg);
-//        switch (countedBreaths) {
-//            case 0:
-//                Log.d("updateStatus", "Breath 0");
-//                bg.setBackground(getResources().getDrawable(R.drawable.breaths0, null));
-//                break;
-//            case 1:
-//                Log.d("updateStatus", "Breath 1");
-//                bg.setBackground(getResources().getDrawable(R.drawable.breaths1, null));
-//                break;
-//            case 2:
-//                Log.d("updateStatus", "Breath 2");
-//                bg.setBackground(getResources().getDrawable(R.drawable.breaths2, null));
-//                stopRepeatingUpdates();
-//                Intent i = new Intent(this, CompressionActivity.class);
-//                startActivity(i);
-//                return;
-//        }
-        Log.d("updateStatus", "Number of breaths: " + countedBreaths);
+//        Log.d("updateStatus", "Number of breaths: " + countedBreaths);
         TextView numBreaths = (TextView) findViewById(R.id.num_breaths);
-        numBreaths.setText("" + (NUM_BREATHS - countedBreaths));
-        if (countedBreaths == 2) {
-            stopRepeatingUpdates();
-            Log.d("updateStatus", "Starting up CompressionActivity");
+
+        if (countedBreaths == 0) {
+            numBreaths.setText("2");
+        } else if (countedBreaths == 1) {
+            numBreaths.setText("1");
+//            Uncomment when on actual device; I get OOM on emulator with this right now.
+//            bg.setBackground(getResources().getDrawable(R.drawable.breaths1, null));
+        } else if (countedBreaths == 2) {
+            numBreaths.setText("0");
+//            Uncomment when on actual device; I get OOM on emulator with this right now.
+//            bg.setBackground(getResources().getDrawable(R.drawable.breaths2, null));
+        } else if (countedBreaths == 3) {
             Intent i = new Intent(this, CompressionActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
-        } else {
-            countedBreaths++;
+            stopRepeatingUpdates();
         }
+
+        countedBreaths++;
     }
 
     public void startRepeatingUpdates() {
@@ -78,5 +70,17 @@ public class BreathActivity extends WearableActivity {
 
     public void stopRepeatingUpdates() {
         updateHandler.removeCallbacks(mStatusChecker);
+    }
+
+    @Override
+    public void onPause() {
+        stopRepeatingUpdates();
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        stopRepeatingUpdates();
+        super.onStop();
     }
 }
