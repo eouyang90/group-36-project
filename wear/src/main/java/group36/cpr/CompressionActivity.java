@@ -3,6 +3,8 @@ package group36.cpr;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,7 +22,6 @@ public class CompressionActivity extends WearableActivity {
     // The following variables are used for the shake detection
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
-    private ShakeDetector mShakeDetector;
 
     // The following variables are used for updating the background status color
     private Handler updateHandler;
@@ -32,6 +33,27 @@ public class CompressionActivity extends WearableActivity {
             } finally {
                 updateHandler.postDelayed(mStatusChecker, UPDATE_INTERVAL_MS);
             }
+        }
+    };
+
+    private final SensorEventListener mSensorListener = new SensorEventListener() {
+        private static final float SHAKE_THRESHOLD_GRAVITY = 2.0F;
+
+        public void onSensorChanged(SensorEvent se) {
+            float gX = se.values[0] / SensorManager.GRAVITY_EARTH;
+            float gY = se.values[1] / SensorManager.GRAVITY_EARTH;
+            float gZ = se.values[2] / SensorManager.GRAVITY_EARTH;
+
+            // gForce will be close to 1 when there is no movement.
+            double gForce = Math.sqrt(gX * gX + gY * gY + gZ * gZ);
+
+            if (gForce > SHAKE_THRESHOLD_GRAVITY) {
+//                Log.d("onSensorChanged", "Shake detected!");
+                registerCompressions();
+            }
+        }
+
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     };
 
@@ -49,14 +71,6 @@ public class CompressionActivity extends WearableActivity {
         // Initialize shake detection system.
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mShakeDetector = new ShakeDetector();
-        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
-            @Override
-            public void onShake() {
-                Log.d("onShake", "Listener picked up on shake");
-                registerCompressions();
-            }
-        });
 
         updateHandler = new Handler();
         startRepeatingUpdates();
@@ -68,21 +82,7 @@ public class CompressionActivity extends WearableActivity {
 
     public void registerCompressions() {
         completedCompressions++;
-
-        long elapsedTime = System.currentTimeMillis() - startTime;
-        int expectedNumCompressions = (int) (MIN_COMPRESSION_RATE * elapsedTime);
-        Log.d("registerCompressions", "Elapsed time: " + elapsedTime);
-
-
-        BoxInsetLayout bg = (BoxInsetLayout) findViewById(R.id.container);
-        bg.setBackgroundColor(getResources().getColor(R.color.green));
-//        if (expectedNumCompressions > completedCompressions + TOLERANCE) {
-//            bg.setBackgroundColor(getResources().getColor(R.color.yellow)); // Too slow.
-//        } else if (expectedNumCompressions < completedCompressions - TOLERANCE) {
-//            bg.setBackgroundColor(getResources().getColor(R.color.red)); // Too fast.
-//        } else {
-//            bg.setBackgroundColor(getResources().getColor(R.color.green));
-//        }
+        updateBackground();
     }
 
     public void updateStatus() {
@@ -92,12 +92,31 @@ public class CompressionActivity extends WearableActivity {
         TextView countDisplay = (TextView) findViewById(R.id.num_compressions);
         countDisplay.setText("" + (TOTAL_NUM_COMPRESSIONS - countedCompressions));
 
+        updateBackground();
+
         if (countedCompressions == TOTAL_NUM_COMPRESSIONS) {
             countedCompressions = 0;
             Intent i = new Intent(this, BreathActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
             stopRepeatingUpdates();
+            mSensorManager.unregisterListener(mSensorListener);
+        }
+    }
+
+    public void updateBackground() {
+        long elapsedTime = System.currentTimeMillis() - startTime;
+        Log.d("updateBackground", "Elapsed time: " + elapsedTime);
+        int expectedNumCompressions = (int) (MIN_COMPRESSION_RATE * elapsedTime / 1000.0);
+        Log.d("updateBackground", "Expected: " + expectedNumCompressions + " | Completed: " + completedCompressions);
+
+        BoxInsetLayout bg = (BoxInsetLayout) findViewById(R.id.container);
+        if (expectedNumCompressions > completedCompressions + TOLERANCE) {
+            bg.setBackgroundColor(getResources().getColor(R.color.yellow)); // Too slow.
+        } else if (expectedNumCompressions < completedCompressions - TOLERANCE) {
+            bg.setBackgroundColor(getResources().getColor(R.color.red)); // Too fast.
+        } else {
+            bg.setBackgroundColor(getResources().getColor(R.color.green));
         }
     }
 
@@ -114,12 +133,12 @@ public class CompressionActivity extends WearableActivity {
         super.onResume();
         Log.d("onResume", "");
         startTime = System.currentTimeMillis();
-        mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+        mSensorManager.registerListener(mSensorListener, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
     public void onPause() {
-        mSensorManager.unregisterListener(mShakeDetector);
+        mSensorManager.unregisterListener(mSensorListener);
         stopRepeatingUpdates();
         Log.d("onPause", "");
         super.onPause();
@@ -127,7 +146,7 @@ public class CompressionActivity extends WearableActivity {
 
     @Override
     public void onStop() {
-        mSensorManager.unregisterListener(mShakeDetector);
+        mSensorManager.unregisterListener(mSensorListener);
         stopRepeatingUpdates();
         Log.d("onStop", "");
         super.onStop();
