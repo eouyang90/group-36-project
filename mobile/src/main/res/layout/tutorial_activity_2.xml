@@ -1,61 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background1">
-
-    <TextView
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:textColor="#000000"
-        android:textSize="40dp"
-        android:text="Hand Position"
-        android:layout_above="@+id/adult_select_tutorial"
+    android:layout_height="match_parent">
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:padding="0dp"
+        android:id="@+id/tutorial2"
+        android:src="@drawable/tutorial2"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="160dp"
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="try"
+        android:id="@+id/try_compression"
         android:layout_alignParentBottom="true"
-        android:adjustViewBounds="true"
-        android:src="@drawable/s1"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
-    <TextView
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/T11"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:text="Hand Position"
-        android:layout_above="@+id/adult_select_tutorial"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"/>
-    <TextView
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/T12"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:text="Hand Position"
-        android:layout_above="@+id/adult_select_tutorial"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"/>
-    <TextView
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/T13"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:text="(Left/right handers, please put your left/right hand on top)"
-        android:layout_above="@+id/T3"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"/>
-
-
-
-</LinearLayout>
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
