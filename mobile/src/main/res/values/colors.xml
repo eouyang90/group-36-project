@@ -6,4 +6,7 @@
     <color name="chenPrimary">#3F6858</color>
     <color name="chenPrimaryDark">#333333</color>
     <color name="background1">#EDEEC9</color>
+    <color name="background2">#87CECA</color>
+    <color name="background3">#007500</color>
+
 </resources>
