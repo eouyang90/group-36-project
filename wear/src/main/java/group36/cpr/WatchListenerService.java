@@ -16,6 +16,8 @@ public class WatchListenerService extends WearableListenerService {
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
+        String data = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+
         if( messageEvent.getPath().equalsIgnoreCase( MODE ) ) {
             String mode = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
@@ -37,5 +39,6 @@ public class WatchListenerService extends WearableListenerService {
                 startActivity(i);
             }
         }
+        //Intent i = getApplicationContext().getPackageManager().getLaunchIntentForPackage(getApplicationContext().getPackageName());
     }
 }

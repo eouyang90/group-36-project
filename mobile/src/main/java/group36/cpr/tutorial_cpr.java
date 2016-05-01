@@ -15,7 +15,7 @@ import android.widget.Toast;
 /**
  * Created by austinhle on 4/15/16.
  */
-public class StartCPRActivity3 extends Activity {
+public class tutorial_cpr extends Activity {
     private String selection = "Adult";
     private String cr = "x";
     private String cd = "x";
@@ -28,15 +28,15 @@ public class StartCPRActivity3 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         state = false;
-        setContentView(R.layout.cpr_activity_3);
+        setContentView(R.layout.tutorial_cpr_practice);
         Intent intent = getIntent();
         selection = intent.getStringExtra("selection"); //adult, child, infant
 
         //set texts
-        TextView compression_reps = (TextView)findViewById(R.id.compression_reps);
-        TextView compression_desc = (TextView)findViewById(R.id.compression_desc);
-        TextView breath_rep = (TextView)findViewById(R.id.breath_rep);
-        TextView breath_desc = (TextView)findViewById(R.id.breath_desc);
+        TextView compression_reps = (TextView)findViewById(R.id.compression_reps_t);
+        TextView compression_desc = (TextView)findViewById(R.id.compression_desc_t);
+        TextView breath_rep = (TextView)findViewById(R.id.breath_rep_t);
+        TextView breath_desc = (TextView)findViewById(R.id.breath_desc_t);
         if (selection.equals("Adult")) {
             cr = "30";
             cd = "depth: 2 inches\nrate: 100 per min";
@@ -60,7 +60,7 @@ public class StartCPRActivity3 extends Activity {
         breath_desc.setText(bd);
 
         //set the button color and text
-        final Button start_CPR_button = (Button)findViewById(R.id.startCPR);
+        final Button start_CPR_button = (Button)findViewById(R.id.startCPR_t);
         start_CPR_button.setText("Start " + selection + " CPR");
         start_CPR_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +90,8 @@ public class StartCPRActivity3 extends Activity {
                     Log.d("stop watch", "watch stop");
 
                     //TODO: now automatically go to history detail page, should be triggered by watch
-                    Intent sendIntent = new Intent(getBaseContext(), HistoryDetailedActivity.class);
+                    Intent sendIntent = new Intent(getBaseContext(), TutorialActivity2.class);
+                    sendIntent.putExtra("selection", selection);
                     startActivity(sendIntent);
                 }
             }
