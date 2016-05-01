@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Created by austinhle on 4/15/16.
  */
@@ -88,6 +91,46 @@ public class StartCPRActivity3 extends Activity {
                     watchIntent.putExtra("mode", watchMode);
                     startService(watchIntent);
                     Log.d("stop watch", "watch stop");
+
+                    /*
+                    final HistoryDbHelper mDbHelper = new HistoryDbHelper(getApplicationContext());
+                    // Gets the data repository in write mode
+                    final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+                    final Button button = (Button) findViewById(R.id.button);
+                    final long[] timeKeeper = new long[1];
+                    button.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            if (isRunning) {
+                                long endTime = System.nanoTime();
+                                long elapsedTime = (endTime - timeKeeper[0])/1000000000;
+                                long numMins = elapsedTime/60;
+                                long numSecs = elapsedTime%60;
+
+                                int endTimeInt = (int) endTime;
+                                String elTime = numMins + " mins, " + numSecs + " secs";
+
+                                // Create a new map of values, where column names are the keys
+                                ContentValues values = new ContentValues();
+                                values.put(Entries.COLUMN_NAME_ENTRY_ID, endTimeInt);
+                                values.put(Entries.COLUMN_NAME_ELTIME, elTime);
+
+                                // Insert the new row, returning the primary key value of the new row
+                                long newRowId;
+                                newRowId = db.insert(
+                                        Entries.TABLE_NAME,null,
+                                        values);
+
+                                timeKeeper[0] = 0L;
+                                button.setText("Start Me!");
+                            } else {
+                                button.setText("Stop Me!");
+                                timeKeeper[0] = System.nanoTime();
+                            }
+                            isRunning = !isRunning;
+                        }
+                    });
+                     */
 
                     //TODO: now automatically go to history detail page, should be triggered by watch
                     Intent sendIntent = new Intent(getBaseContext(), HistoryDetailedActivity.class);
