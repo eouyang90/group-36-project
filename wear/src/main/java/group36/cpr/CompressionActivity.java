@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CompressionActivity extends Activity {
+    //https://youtu.be/7Hh2fFXfahk
 
     private TextView mTextView;
 

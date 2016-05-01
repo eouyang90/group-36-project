@@ -43,7 +43,7 @@ public class StartCPRActivity3 extends Activity {
             br = "2";
             bd = "rate: 1 second\nper breath";
 
-        } else if (selection.equals("Chind")) {
+        } else if (selection.equals("Child")) {
             cr = "30";
             cd = "depth: 2 inches\nrate: 100 per min";
             br = "2";

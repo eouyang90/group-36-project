@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent sendIntent = new Intent(getBaseContext(), TutorialActivity1.class);
-                Log.d("MainActivity", "Start tutorial");
+                Log.d("MainActivity", "Start Tutorial");
                 startActivity(sendIntent);
             }
         });
