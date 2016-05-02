@@ -12,6 +12,7 @@ import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.BoxInsetLayout;
 import android.util.Log;
 import android.widget.TextView;
+import android.view.animation.LinearInterpolator;
 
 
 //https://youtu.be/7Hh2fFXfahk
