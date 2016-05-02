@@ -2,12 +2,18 @@ package group36.cpr;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -20,7 +26,76 @@ public class HistoryDetailedActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_detailed_activity);
-        
+
+        /*
+        LayoutInflater inflater = getLayoutInflater();
+
+        String timeDate = getIntent().getStringExtra("time");
+
+        final HistoryDbHelper mDbHelper = new HistoryDbHelper(getApplicationContext());
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+        */
+
+        /*
+        * We will need to get rescue breaths, patient type, total elapsed time, and finish date from
+        * the first table, Entries, and the remainder of the information (frequency accuracy, depth
+        * accuracy, data points (and number of compressions from number of data points)) from the
+        * second table, DepthTimes. As a result, no joining will be involved, since the unique
+        * datetime serves as a key for both tables.
+        */
+
+        /*
+        // Define a projection that specifies which columns from the database
+        // you will actually use after this query.
+        String[] projection = {
+                DepthTimes.COLUMN_TIME,
+                DepthTimes.COLUMN_DEPTH
+        };
+
+        // How you want the results sorted in the resulting Cursor
+        String sortOrder =
+                DepthTimes.COLUMN_DATETIME_ID + " DESC";
+
+        String whereArg = DepthTimes.COLUMN_DATETIME_ID + "=?";
+
+        String [] whereVals = {
+                timeDate
+        };
+
+        Cursor c = db.query(
+                DepthTimes.TABLE_NAME,                    // The table to query
+                projection,                               // The columns to return
+                whereArg,                                 // The columns for the WHERE clause
+                whereVals,                                // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );
+
+        LinearLayout main = (LinearLayout) findViewById(R.id.hd_body);
+
+        if (c.moveToFirst()) {
+
+            while (c.isAfterLast() == false) {
+                View view = inflater.inflate(R.layout.activity_hd_entry, null);
+                final String timems = c.getString(c.getColumnIndexOrThrow(DepthTimes.COLUMN_TIME));
+                TextView text = (TextView) view.findViewById(R.id.timems);
+                text.setText(timems);
+                final String depth = c.getString(c.getColumnIndexOrThrow(DepthTimes.COLUMN_DEPTH));
+                TextView depthText = (TextView) view.findViewById(R.id.depth);
+                depthText.setText(depth);
+                main.addView(view);
+                c.moveToNext();
+            }
+        }
+
+        //***REMOVE ON FINAL PUSH***
+        //db.delete deletes all the rows of the table but keeps the table:
+        db.delete(DepthTimes.TABLE_NAME, null, null);
+        //dropping the table removes the table itself, but the db remains:
+        //db.execSQL("DROP TABLE IF EXISTS " + Entries.TABLE_NAME);
+        */
+
         
          GraphView graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {

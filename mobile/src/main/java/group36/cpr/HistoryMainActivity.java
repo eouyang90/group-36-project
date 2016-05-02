@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ImageButton;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.database.Cursor;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -22,23 +24,8 @@ public class HistoryMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_main_activity);
 
-        ImageButton startCPRButton = (ImageButton) findViewById(R.id.historyBackground);
-        startCPRButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent;
-                sendIntent = new Intent(getBaseContext(), HistoryDetailedActivity.class);
-                Log.d("MainActivity", "Starting up StartCPRActivity1");
-                startActivity(sendIntent);
-            }
-        });
-    }
-
-    /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        /*
+        LayoutInflater inflater = getLayoutInflater();
 
         final HistoryDbHelper mDbHelper = new HistoryDbHelper(getApplicationContext());
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
@@ -46,13 +33,13 @@ public class HistoryMainActivity extends Activity {
         // Define a projection that specifies which columns from the database
         // you will actually use after this query.
         String[] projection = {
-                Entries.COLUMN_NAME_ENTRY_ID,
-                Entries.COLUMN_NAME_ELTIME
+                Entries.COLUMN_DATETIME_ID,
+                Entries.COLUMN_ELTIME
         };
 
         // How you want the results sorted in the resulting Cursor
         String sortOrder =
-                Entries.COLUMN_NAME_ENTRY_ID + " DESC";
+                Entries.COLUMN_DATETIME_ID + " DESC";
 
         Cursor c = db.query(
                 Entries.TABLE_NAME,  // The table to query
@@ -64,19 +51,49 @@ public class HistoryMainActivity extends Activity {
                 sortOrder                                 // The sort order
         );
 
-        c.moveToFirst();
-        String itemId = c.getString(
-                c.getColumnIndexOrThrow(Entries.COLUMN_NAME_ELTIME)
-        );
+        LinearLayout main = (LinearLayout) findViewById(R.id.history_body);
 
-        final TextView text = (TextView) findViewById(R.id.text);
-        text.setText(itemId);
+
+
+        if (c.moveToFirst()) {
+
+            while (c.isAfterLast() == false) {
+                final String time = c.getString(c.getColumnIndexOrThrow(Entries.COLUMN_DATETIME_ID));
+                View view = inflater.inflate(R.layout.activity_entry, null);
+                TextView text = (TextView) view.findViewById(R.id.text);
+                text.setText(time);
+                text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), HistoryDetailedActivity.class);
+                        intent.putExtra("time", time);
+                        startActivity(intent);
+                    }
+                });
+                main.addView(view);
+                c.moveToNext();
+            }
+        }
+
+        //***REMOVE ON FINAL PUSH***
+        //db.delete deletes all the rows of the table but keeps the table:
+        db.delete(Entries.TABLE_NAME, null, null);
+        //dropping the table removes the table itself, but the db remains:
+        //db.execSQL("DROP TABLE IF EXISTS " + Entries.TABLE_NAME);
+        */
+
+        //***REMOVE BELOW AFTER DB***
+        ImageButton startCPRButton = (ImageButton) findViewById(R.id.historyBackground);
+        startCPRButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent;
+                sendIntent = new Intent(getBaseContext(), HistoryDetailedActivity.class);
+                Log.d("MainActivity", "Starting up StartCPRActivity1");
+                startActivity(sendIntent);
+            }
+        });
     }
-     */
-
-    /*
-
-     */
 
     //handle option selection
     @Override

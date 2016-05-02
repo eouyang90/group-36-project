@@ -103,6 +103,14 @@ public class StartCPRActivity3 extends Activity {
                     //Creates a new table with certain structure:
                     //db.execSQL(Entries.SQL_CREATE_ENTRIES);
 
+                    final ArrayList<Tuple> dts = new ArrayList<Tuple>();
+                    dts.add(new Tuple(1,(float)3.0));
+                    dts.add(new Tuple(2,(float)3.0));
+                    dts.add(new Tuple(3,(float)3.0));
+                    dts.add(new Tuple(4,(float)5.0));
+                    dts.add(new Tuple(3,(float)4.0));
+                    dts.add(new Tuple(2, (float) 1.0));
+
                     final Button button = (Button) findViewById(R.id.button);
                     final long[] timeKeeper = new long[1];
                     button.setOnClickListener(new View.OnClickListener() {
@@ -123,12 +131,22 @@ public class StartCPRActivity3 extends Activity {
                                 ContentValues values = new ContentValues();
                                 values.put(Entries.COLUMN_DATETIME_ID, sdf.format(endDate));
                                 values.put(Entries.COLUMN_ELTIME, elTime);
+                                values.put(Entries.COLUMN_SUBJECT_TYPE, "Adult");
 
                                 // Insert the new row, returning the primary key value of the new row
                                 long newRowId;
                                 newRowId = db.insert(
                                         Entries.TABLE_NAME,null,
                                         values);
+
+
+                                for (Tuple t:dts) {
+                                    ContentValues deptimes = new ContentValues();
+                                    deptimes.put(DepthTimes.COLUMN_DATETIME_ID, sdf.format(endDate));
+                                    deptimes.put(DepthTimes.COLUMN_TIME, t.getInt());
+                                    deptimes.put(DepthTimes.COLUMN_DEPTH, t.getFloat());
+                                    db.insert(DepthTimes.TABLE_NAME, null, deptimes);
+                                }
 
                                 timeKeeper[0] = 0L;
                                 button.setText("Start Me!");
@@ -137,15 +155,6 @@ public class StartCPRActivity3 extends Activity {
                                 timeKeeper[0] = System.currentTimeMillis();
                             }
                             isRunning = !isRunning;
-                        }
-                    });
-
-                    final Button next = (Button) findViewById(R.id.historybtn);
-                    next.setOnClickListener(new View.OnClickListener(){
-                        public void onClick(View v) {
-                            isRunning = false;
-                            Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
-                            startActivity(intent);
                         }
                     });
                      */
