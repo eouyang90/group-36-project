@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -20,7 +21,14 @@ public class HistoryDetailedActivity extends Activity {
         setContentView(R.layout.history_detailed_activity);
         
         
-         GraphView graph = (GraphView) findViewById(R.id.graph);
+        GraphView graph = (GraphView) findViewById(R.id.graph);
+
+        GridLabelRenderer gr = graph.getGridLabelRenderer();
+        gr.setGridColor(R.color.chenPrimaryDark);
+        gr.setVerticalLabelsColor(R.color.chenPrimaryDark);
+        gr.setHorizontalLabelsColor(R.color.chenPrimaryDark);
+
+
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
                 new DataPoint(0, 16),
                 new DataPoint(1, 17),

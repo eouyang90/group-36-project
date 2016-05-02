@@ -61,7 +61,7 @@ public class tutorial_cpr extends Activity {
 
         //set the button color and text
         final Button start_CPR_button = (Button)findViewById(R.id.startCPR_t);
-        start_CPR_button.setText("Start " + selection + " CPR");
+        start_CPR_button.setText("Try " + selection + " CPR");
         start_CPR_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
