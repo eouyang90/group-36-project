@@ -129,16 +129,16 @@
         android:src="@drawable/pic_24"
         android:id="@+id/image_24"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"/>
-
-
-
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"/>
 </LinearLayout>
 </ScrollView>
 <ImageView
-android:layout_width="wrap_content"
-android:layout_height="22dp"
-android:layout_marginBottom="0dp"
-android:layout_alignParentBottom="true"
-android:src="@drawable/page2" />
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scaleType="centerCrop"
+    android:adjustViewBounds="true"
+    android:layout_marginBottom="0dp"
+    android:layout_alignParentBottom="true"
+    android:src="@drawable/page2" />
     </RelativeLayout>

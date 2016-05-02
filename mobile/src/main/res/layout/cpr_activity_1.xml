@@ -5,29 +5,29 @@
     android:layout_height="match_parent"
     android:background="@color/white_background">
     <ImageView
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:scaleType="fitCenter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:layout_above="@+id/child_select"
         android:src="@drawable/adult_select"
         android:id="@+id/adult_select"
         android:layout_gravity="center_vertical" />
     <ImageView
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:scaleType="fitCenter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:src="@drawable/child_select"
         android:id="@+id/child_select"
         android:layout_above="@+id/infant_select"
         android:layout_alignParentStart="true" />
     <ImageView
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:scaleType="fitCenter"
-        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
         android:adjustViewBounds="true"
+        android:layout_alignParentBottom="true"
         android:gravity="bottom"
         android:src="@drawable/infant_select"
         android:id="@+id/infant_select"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:textColor="#315044"
         android:textSize="40dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="45dp"
         android:text="Who are you performing CPR on?"
         android:layout_above="@+id/adult_select"
         android:layout_centerHorizontal="true" />

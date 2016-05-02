@@ -9,11 +9,11 @@
     tools:context="group36.cpr.MainActivity">
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="105dp"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
         android:text="Tutorial"
         android:id="@+id/tutorial"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:background="@drawable/rounded_dark"
         android:layout_marginBottom="50dp"
         android:textAllCaps="false"
@@ -21,8 +21,8 @@
         android:layout_alignStart="@+id/startCPR" />
     <Button
         android:radius="50dp"
-        android:layout_width="220dp"
-        android:layout_height="100dp"
+        android:layout_width="250dp"
+        android:layout_height="130dp"
         android:background="@drawable/rounded_light"
         android:textSize="35dp"
         android:text="Start CPR"
@@ -32,10 +32,10 @@
         android:layout_above="@+id/tutorial"
         android:layout_centerHorizontal="true" />
     <Button
-        android:layout_width="105dp"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
         android:text="History"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:background="@drawable/rounded_dark"
         android:id="@+id/history"
         android:textAllCaps="false"
@@ -47,17 +47,17 @@
         android:layout_height="wrap_content"
         android:textColor="#3F6858"
         android:text="CPR training so you never forget"
-        android:layout_marginBottom="30dp"
-        android:textSize="20dp"
+        android:layout_marginBottom="42dp"
+        android:textSize="25dp"
+        android:id="@+id/textView"
         android:layout_above="@+id/startCPR"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView" />
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="280dp"
         android:layout_height="200dp"
         android:src="@drawable/logo"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp" />
+        android:layout_marginBottom="37dp" />
 </RelativeLayout>

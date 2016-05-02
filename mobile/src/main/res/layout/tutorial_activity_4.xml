@@ -113,17 +113,17 @@
         android:adjustViewBounds="true"
         android:src="@drawable/pic_33"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
-
-
-
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"/>
 
 </LinearLayout>
     </ScrollView>
-<ImageView
-android:layout_width="wrap_content"
-android:layout_height="22dp"
-android:layout_marginBottom="0dp"
-android:layout_alignParentBottom="true"
-android:src="@drawable/page3" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="0dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/page3" />
     </RelativeLayout>
