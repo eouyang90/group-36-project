@@ -3,11 +3,9 @@ package group36.cpr;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
+
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -50,16 +48,16 @@ public class HistoryDetailedActivity extends Activity {
 
         graph.addSeries(series);
 
-        ImageButton startCPRButton = (ImageButton) findViewById(R.id.history_detail);
-        startCPRButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent;
-                sendIntent = new Intent(getBaseContext(), MainActivity.class);
-                Log.d("MainActivity", "Starting up StartCPRActivity1");
-                startActivity(sendIntent);
-            }
-        });
+//        ImageView startCPRButton = (ImageView) findViewById(R.id.history_detail);
+//        startCPRButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent sendIntent;
+//                sendIntent = new Intent(getBaseContext(), MainActivity.class);
+//                Log.d("MainActivity", "Starting up StartCPRActivity1");
+//                startActivity(sendIntent);
+//            }
+//        });
     }
 
     //handle option selection

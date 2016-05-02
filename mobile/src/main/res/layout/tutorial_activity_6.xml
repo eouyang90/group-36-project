@@ -10,7 +10,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_background">
+    android:background="@color/white_background"
+    >
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +25,7 @@
             android:layout_marginLeft="20dp"
             android:textColor="@color/text_color"
             android:textSize="30dp"
-            android:text="Cycle"
+            android:text="Rescue Breath"
             android:layout_above="@+id/adult_select_tutorial"
             android:layout_centerHorizontal="true" />
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -36,63 +38,54 @@
                 android:layout_marginTop="20dp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:id="@+id/age_5"/>
+                android:id="@+id/age_4"/>
             <!--android:layout_marginLeft="50dp"-->
             <!--android:layout_marginTop="20dp"-->
             <!--android:layout_marginRight="20dp"-->
         </RelativeLayout>
     </LinearLayout>
-    <!--<TextView-->
-        <!--android:layout_width="280dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="50dp"-->
-        <!--android:id="@+id/T51"-->
-        <!--android:textColor="@color/text_color"-->
-        <!--android:textSize="20dp"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_gravity="center"/>-->
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/T41"
+            android:textColor="@color/text_color"
+            android:textSize="20dp"
+            android:text="Tilt the head back and lift the chin up"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:src="@drawable/pic_41"
+            android:layout_gravity="center"/>
     <TextView
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/T42"
         android:textColor="@color/text_color"
         android:textSize="20dp"
-        android:text="Cycle between 30 chest compressions and 2 rescue breaths."
+        android:text="Pinch the nose shut and make a complete seal over the mouth"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:src="@drawable/pic_42"
+            android:layout_gravity="center"/>
     <TextView
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/T43"
         android:textColor="@color/text_color"
         android:textSize="20dp"
-        android:text="Maintain a steady up-and-down rhythm and do not pause between compressions"
+        android:text="Blow in for 1 second to make the chest clearly rise"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"/>
 
-    <TextView
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/text_color"
-        android:textSize="20dp"
-        android:text="Keep repeating until the patient starts breathing or help arrives"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"/>
-
-    <!--<Button-->
-        <!--android:layout_gravity="center"-->
-        <!--android:padding="10dp"-->
-        <!--android:layout_marginTop="30dp"-->
-        <!--android:textColor="@color/text_color"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:background="@drawable/rounded_light"-->
-        <!--android:textSize="15dp"-->
-        <!--android:text="Try On Watch"-->
-        <!--android:id="@+id/try_compression"-->
-
-        <!--/>-->
 </LinearLayout>
     </ScrollView>
 <ImageView
@@ -100,5 +93,5 @@ android:layout_width="wrap_content"
 android:layout_height="22dp"
 android:layout_marginBottom="0dp"
 android:layout_alignParentBottom="true"
-android:src="@drawable/page5" />
+android:src="@drawable/page4" />
     </RelativeLayout>

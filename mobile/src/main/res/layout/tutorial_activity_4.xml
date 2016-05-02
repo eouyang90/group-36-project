@@ -1,22 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:padding="0dp"
-        android:id="@+id/tutorial4"
-        android:src="@drawable/tutorial4"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    android:layout_height="match_parent"
+    android:background="@color/white_background">
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="try"
-        android:id="@+id/try_breath"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/text_color"
+            android:textSize="30dp"
+            android:text="Chest Compression"
+            android:layout_above="@+id/adult_select_tutorial"
+            android:layout_centerHorizontal="true" />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_background">
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/age_3"/>
+            <!--android:layout_marginLeft="50dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/T31"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Chest Compression"
+        android:layout_gravity="center"/>
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="150dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-</RelativeLayout>
+        android:adjustViewBounds="true"
+        android:src="@drawable/pic_31"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/T32"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Push straight down with the weight of your upper body, not with your arm muscles"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/T33"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Do not rock back and forth"
+        android:layout_gravity="center"/>
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/pic_32"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/T34"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Allow the chest to recoil to its normal position completely before starting the next compression"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/T35"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="The hands should never leave contract with the chest"
+        android:layout_gravity="center"/>
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/pic_33"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+
+
+
+
+</LinearLayout>
+    </ScrollView>
+<ImageView
+android:layout_width="wrap_content"
+android:layout_height="22dp"
+android:layout_marginBottom="0dp"
+android:layout_alignParentBottom="true"
+android:src="@drawable/page3" />
+    </RelativeLayout>
