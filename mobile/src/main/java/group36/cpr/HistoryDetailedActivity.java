@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -97,7 +98,14 @@ public class HistoryDetailedActivity extends Activity {
         */
 
         
-         GraphView graph = (GraphView) findViewById(R.id.graph);
+        GraphView graph = (GraphView) findViewById(R.id.graph);
+
+        GridLabelRenderer gr = graph.getGridLabelRenderer();
+        gr.setGridColor(R.color.chenPrimaryDark);
+        gr.setVerticalLabelsColor(R.color.chenPrimaryDark);
+        gr.setHorizontalLabelsColor(R.color.chenPrimaryDark);
+
+
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
                 new DataPoint(0, 16),
                 new DataPoint(1, 17),
@@ -125,16 +133,16 @@ public class HistoryDetailedActivity extends Activity {
 
         graph.addSeries(series);
 
-        ImageButton startCPRButton = (ImageButton) findViewById(R.id.history_detail);
-        startCPRButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent;
-                sendIntent = new Intent(getBaseContext(), MainActivity.class);
-                Log.d("MainActivity", "Starting up StartCPRActivity1");
-                startActivity(sendIntent);
-            }
-        });
+//        ImageView startCPRButton = (ImageView) findViewById(R.id.history_detail);
+//        startCPRButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent sendIntent;
+//                sendIntent = new Intent(getBaseContext(), MainActivity.class);
+//                Log.d("MainActivity", "Starting up StartCPRActivity1");
+//                startActivity(sendIntent);
+//            }
+//        });
     }
 
     //handle option selection

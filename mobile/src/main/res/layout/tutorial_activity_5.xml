@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white_background"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/text_color"
+            android:textSize="30dp"
+            android:text="Rate"
+            android:layout_above="@+id/adult_select_tutorial"
+            android:layout_centerHorizontal="true" />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_background">
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/age_6"/>
+            <!--android:layout_marginLeft="50dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/T61"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="The chest compressions should be done at a rate of 100 compressions per minute"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/T62"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Each rescue breath should last about 1 second"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/T63"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Each complete cycle of chest compressions and rescue breaths should take about 24 seconds"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
+    </ScrollView>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginBottom="0dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/page6" />
+</RelativeLayout>

@@ -14,18 +14,18 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="-2dp"
         android:layout_marginLeft="-2dp"
-        android:id="@+id/imageView" />
+        android:id="@+id/imageView_t" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="30"
         android:textColor="#315044"
         android:textSize="70dp"
-        android:id="@+id/compression_reps"
+        android:id="@+id/compression_reps_t"
         android:layout_gravity="center_horizontal"
         android:layout_marginRight="15dp"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textView4"
+        android:layout_toStartOf="@+id/textView4_t"
         android:layout_marginTop="10dp" />
     <TextView
         android:layout_width="wrap_content"
@@ -34,9 +34,9 @@
         android:textColor="#315044"
         android:textSize="25dp"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/textView4"
-        android:layout_alignBottom="@+id/compression_reps"
-        android:layout_alignEnd="@+id/startCPR"
+        android:id="@+id/textView4_t"
+        android:layout_alignBottom="@+id/compression_reps_t"
+        android:layout_alignEnd="@+id/startCPR_t"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="25dp" />
     <TextView
@@ -46,9 +46,9 @@
         android:textColor="#315044"
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/compression_desc"
-        android:layout_below="@+id/compression_reps"
-        android:layout_alignStart="@+id/compression_reps" />
+        android:id="@+id/compression_desc_t"
+        android:layout_below="@+id/compression_reps_t"
+        android:layout_alignStart="@+id/compression_reps_t" />
 
     <ImageView
         android:layout_width="364dp"
@@ -58,16 +58,16 @@
         android:layout_marginTop="-2dp"
         android:layout_marginLeft="-2dp"
         android:src="@drawable/breath_bg"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/imageView_t"
         android:layout_alignParentStart="true"
-        android:id="@+id/imageView2" />
+        android:id="@+id/imageView2_t" />
     <Button
         android:layout_width="290dp"
         android:layout_height="114dp"
         android:background="@drawable/rounded_light"
         android:textSize="34dp"
-        android:text="Start default CPR"
-        android:id="@+id/startCPR"
+        android:text="Try default CPR"
+        android:id="@+id/startCPR_t"
         android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
         android:layout_alignParentBottom="true"
@@ -80,11 +80,11 @@
         android:text="2"
         android:textColor="#315044"
         android:textSize="70dp"
-        android:id="@+id/breath_rep"
+        android:id="@+id/breath_rep_t"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/imageView_t"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -94,10 +94,10 @@
         android:textColor="#315044"
         android:textSize="25dp"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/textView5"
+        android:id="@+id/textView5_t"
         android:layout_marginRight="10dp"
-        android:layout_alignTop="@+id/breath_rep"
-        android:layout_toStartOf="@+id/compression_desc"
+        android:layout_alignTop="@+id/breath_rep_t"
+        android:layout_toStartOf="@+id/compression_desc_t"
         android:layout_marginEnd="1dp"
         android:layout_marginTop="28dp" />
 
@@ -105,11 +105,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1 second\nper breath"
+        android:layout_marginLeft="20dp"
         android:textColor="#315044"
         android:textSize="20dp"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/breath_desc"
-        android:layout_below="@+id/breath_rep"
+        android:id="@+id/breath_desc_t"
+        android:layout_below="@+id/breath_rep_t"
         android:layout_alignStart="@+id/startCPR" />
 
 </RelativeLayout>

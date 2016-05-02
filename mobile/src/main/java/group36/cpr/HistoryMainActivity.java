@@ -14,6 +14,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.Cursor;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 /**
  * Created by austinhle on 4/15/16.
@@ -24,9 +25,9 @@ public class HistoryMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_main_activity);
 
-        /*
         LayoutInflater inflater = getLayoutInflater();
 
+        /*
         final HistoryDbHelper mDbHelper = new HistoryDbHelper(getApplicationContext());
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
@@ -83,7 +84,7 @@ public class HistoryMainActivity extends Activity {
         */
 
         //***REMOVE BELOW AFTER DB***
-        ImageButton startCPRButton = (ImageButton) findViewById(R.id.historyBackground);
+        ImageView startCPRButton = (ImageView) findViewById(R.id.historyBackground);
         startCPRButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
