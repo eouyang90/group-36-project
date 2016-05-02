@@ -7,7 +7,19 @@ import android.provider.BaseColumns;
  */
 public class Entries implements BaseColumns {
     public static final String TABLE_NAME = "history";
-    public static final String COLUMN_NAME_ENTRY_ID = "entryid";
-    public static final String COLUMN_NAME_ELTIME = "eltime";
+    public static final String COLUMN_DATETIME_ID = "datetime_id";
+    public static final String COLUMN_ELTIME = "eltime";
+    public static final String COLUMN_SUBJECT_TYPE = "subjtype";
+    public static final String COLUMN_DEPTHTIMES = "depthtimes";
+
+    private static final String TEXT_TYPE = " TEXT";
+    private static final String COMMA_SEP = ", ";
+    public static final String SQL_CREATE_ENTRIES =
+            "CREATE TABLE IF NOT EXISTS " + Entries.TABLE_NAME + " (" +
+                    Entries.COLUMN_DATETIME_ID + " INTEGER PRIMARY KEY" + COMMA_SEP +
+                    Entries.COLUMN_ELTIME + TEXT_TYPE + COMMA_SEP +
+                    Entries.COLUMN_SUBJECT_TYPE + TEXT_TYPE +
+                    // Any other options for the CREATE command
+                    " )";
 }
 

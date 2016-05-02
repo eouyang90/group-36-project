@@ -97,23 +97,32 @@ public class StartCPRActivity3 extends Activity {
                     // Gets the data repository in write mode
                     final SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
+                    //***REMOVE ON FINAL PUSH***
+                    //Each time drop table and readd it emptily with newest structure.
+                    mDbHelper.onUpgrade(db, 1, 1);
+                    //Creates a new table with certain structure:
+                    //db.execSQL(Entries.SQL_CREATE_ENTRIES);
+
                     final Button button = (Button) findViewById(R.id.button);
                     final long[] timeKeeper = new long[1];
                     button.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             if (isRunning) {
-                                long endTime = System.nanoTime();
-                                long elapsedTime = (endTime - timeKeeper[0])/1000000000;
+                                long endTime = System.currentTimeMillis();
+                                //previously used System.nanoTime() --> more precise (10^6 more sigfigs)
+
+                                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+                                Date endDate = new Date(endTime);
+
+                                long elapsedTime = (endTime - timeKeeper[0])/1000;
                                 long numMins = elapsedTime/60;
                                 long numSecs = elapsedTime%60;
-
-                                int endTimeInt = (int) endTime;
                                 String elTime = numMins + " mins, " + numSecs + " secs";
 
                                 // Create a new map of values, where column names are the keys
                                 ContentValues values = new ContentValues();
-                                values.put(Entries.COLUMN_NAME_ENTRY_ID, endTimeInt);
-                                values.put(Entries.COLUMN_NAME_ELTIME, elTime);
+                                values.put(Entries.COLUMN_DATETIME_ID, sdf.format(endDate));
+                                values.put(Entries.COLUMN_ELTIME, elTime);
 
                                 // Insert the new row, returning the primary key value of the new row
                                 long newRowId;
@@ -125,9 +134,18 @@ public class StartCPRActivity3 extends Activity {
                                 button.setText("Start Me!");
                             } else {
                                 button.setText("Stop Me!");
-                                timeKeeper[0] = System.nanoTime();
+                                timeKeeper[0] = System.currentTimeMillis();
                             }
                             isRunning = !isRunning;
+                        }
+                    });
+
+                    final Button next = (Button) findViewById(R.id.historybtn);
+                    next.setOnClickListener(new View.OnClickListener(){
+                        public void onClick(View v) {
+                            isRunning = false;
+                            Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
+                            startActivity(intent);
                         }
                     });
                      */
