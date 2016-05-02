@@ -38,18 +38,18 @@ public class SampleFragmentThree extends Fragment {
 //                startActivity(sendIntent);
 //            }
 //        });
-//        age_5 = (ImageView)rootView.findViewById(R.id.age_5);
+        age_5 = (ImageView)rootView.findViewById(R.id.age_5);
 //        T51 = (TextView) rootView.findViewById(R.id.T51);
-//        if (selection.equals("Adult")) {
+        if (selection.equals("Adult")) {
 //            text1 = "30 chest compressions \nand \n2 rescue breath";
-//            age_5.setImageResource(R.drawable.adult);
-//        } else if (selection.equals("Child")) {
+            age_5.setImageResource(R.drawable.adult);
+        } else if (selection.equals("Child")) {
 //            text1 = "30 chest compressions \nand \n2 rescue breath";
-//            age_5.setImageResource(R.drawable.child);
-//        } else {
+            age_5.setImageResource(R.drawable.child);
+        } else {
 //            text1 = "2 rescue breath \nand \n30 chest compressions ";
-//            age_5.setImageResource(R.drawable.infant);
-//        }
+            age_5.setImageResource(R.drawable.infant);
+        }
 //        T51.setText(text1);
 //        T21 = (TextView) rootView.findViewById(R.id.T21);
 //        T22 = (TextView)rootView.findViewById(R.id.T22);
