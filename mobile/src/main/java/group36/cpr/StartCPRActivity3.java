@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Created by austinhle on 4/15/16.
  */
@@ -43,7 +46,7 @@ public class StartCPRActivity3 extends Activity {
             br = "2";
             bd = "rate: 1 second\nper breath";
 
-        } else if (selection.equals("Chind")) {
+        } else if (selection.equals("Child")) {
             cr = "30";
             cd = "depth: 2 inches\nrate: 100 per min";
             br = "2";
@@ -88,6 +91,73 @@ public class StartCPRActivity3 extends Activity {
                     watchIntent.putExtra("mode", watchMode);
                     startService(watchIntent);
                     Log.d("stop watch", "watch stop");
+
+                    /*
+                    final HistoryDbHelper mDbHelper = new HistoryDbHelper(getApplicationContext());
+                    // Gets the data repository in write mode
+                    final SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+                    //***REMOVE ON FINAL PUSH***
+                    //Each time drop table and readd it emptily with newest structure.
+                    mDbHelper.onUpgrade(db, 1, 1);
+                    //Creates a new table with certain structure:
+                    //db.execSQL(Entries.SQL_CREATE_ENTRIES);
+
+                    final ArrayList<Tuple> dts = new ArrayList<Tuple>();
+                    dts.add(new Tuple(1,(float)3.0));
+                    dts.add(new Tuple(2,(float)3.0));
+                    dts.add(new Tuple(3,(float)3.0));
+                    dts.add(new Tuple(4,(float)5.0));
+                    dts.add(new Tuple(3,(float)4.0));
+                    dts.add(new Tuple(2, (float) 1.0));
+
+                    final Button button = (Button) findViewById(R.id.button);
+                    final long[] timeKeeper = new long[1];
+                    button.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            if (isRunning) {
+                                long endTime = System.currentTimeMillis();
+                                //previously used System.nanoTime() --> more precise (10^6 more sigfigs)
+
+                                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+                                Date endDate = new Date(endTime);
+
+                                long elapsedTime = (endTime - timeKeeper[0])/1000;
+                                long numMins = elapsedTime/60;
+                                long numSecs = elapsedTime%60;
+                                String elTime = numMins + " mins, " + numSecs + " secs";
+
+                                // Create a new map of values, where column names are the keys
+                                ContentValues values = new ContentValues();
+                                values.put(Entries.COLUMN_DATETIME_ID, sdf.format(endDate));
+                                values.put(Entries.COLUMN_ELTIME, elTime);
+                                values.put(Entries.COLUMN_SUBJECT_TYPE, "Adult");
+
+                                // Insert the new row, returning the primary key value of the new row
+                                long newRowId;
+                                newRowId = db.insert(
+                                        Entries.TABLE_NAME,null,
+                                        values);
+
+
+                                for (Tuple t:dts) {
+                                    ContentValues deptimes = new ContentValues();
+                                    deptimes.put(DepthTimes.COLUMN_DATETIME_ID, sdf.format(endDate));
+                                    deptimes.put(DepthTimes.COLUMN_TIME, t.getInt());
+                                    deptimes.put(DepthTimes.COLUMN_DEPTH, t.getFloat());
+                                    db.insert(DepthTimes.TABLE_NAME, null, deptimes);
+                                }
+
+                                timeKeeper[0] = 0L;
+                                button.setText("Start Me!");
+                            } else {
+                                button.setText("Stop Me!");
+                                timeKeeper[0] = System.currentTimeMillis();
+                            }
+                            isRunning = !isRunning;
+                        }
+                    });
+                     */
 
                     //TODO: now automatically go to history detail page, should be triggered by watch
                     Intent sendIntent = new Intent(getBaseContext(), HistoryDetailedActivity.class);

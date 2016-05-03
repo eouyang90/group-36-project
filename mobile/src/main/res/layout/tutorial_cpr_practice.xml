@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/compression_bg"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:id="@+id/imageView_t" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="30"
+        android:textColor="#315044"
+        android:textSize="70dp"
+        android:id="@+id/compression_reps_t"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/textView4_t"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reps"
+        android:textColor="#315044"
+        android:textSize="25dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/textView4_t"
+        android:layout_alignBottom="@+id/compression_reps_t"
+        android:layout_alignEnd="@+id/startCPR_t"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="25dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="depth: 2 inches\nrate: 100 per min"
+        android:textColor="#315044"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/compression_desc_t"
+        android:layout_below="@+id/compression_reps_t"
+        android:layout_alignStart="@+id/compression_reps_t" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:src="@drawable/breath_bg"
+        android:layout_below="@+id/imageView_t"
+        android:layout_alignParentStart="true"
+        android:id="@+id/imageView2_t" />
+    <Button
+        android:layout_width="290dp"
+        android:layout_height="114dp"
+        android:background="@drawable/rounded_light"
+        android:textSize="34dp"
+        android:text="Try default CPR"
+        android:id="@+id/startCPR_t"
+        android:textAllCaps="false"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:textColor="#315044"
+        android:textSize="70dp"
+        android:id="@+id/breath_rep_t"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/imageView_t"
+        android:layout_alignStart="@+id/breath_desc_t" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="breaths"
+        android:textColor="#315044"
+        android:textSize="25dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/textView5_t"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/breath_desc_t"
+        android:layout_toStartOf="@+id/compression_desc_t" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 second\nper breath"
+        android:textColor="#315044"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/breath_desc_t"
+        android:layout_below="@+id/breath_rep_t"
+        android:layout_alignStart="@+id/startCPR_t" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="0dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/page7" />
+</RelativeLayout>
+

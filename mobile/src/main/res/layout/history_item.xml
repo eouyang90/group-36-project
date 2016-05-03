@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:id="@+id/history_entry"
+    android:background="@color/white">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:paddingLeft="25dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/history_date"
+            android:text="August 26, 2016"
+            android:textColor="@color/black"
+            android:textSize="24dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/history_mins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:textColor="@color/black"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" min "
+                android:textColor="@color/black"
+                android:textSize="13dp"/>
+            <TextView
+                android:id="@+id/history_secs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45"
+                android:textColor="@color/black"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" sec"
+                android:textColor="@color/black"
+                android:textSize="13dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/history_type"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:src="@drawable/adult"
+        android:layout_marginTop="12dp" />
+</LinearLayout>

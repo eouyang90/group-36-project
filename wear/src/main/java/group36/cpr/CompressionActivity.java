@@ -12,7 +12,10 @@ import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.BoxInsetLayout;
 import android.util.Log;
 import android.widget.TextView;
+import android.view.animation.LinearInterpolator;
 
+
+//https://youtu.be/7Hh2fFXfahk
 public class CompressionActivity extends WearableActivity {
     private final int TOTAL_NUM_COMPRESSIONS = 30;
     private final double MIN_COMPRESSION_RATE = 100.0 / 60.0; // 100 compressions per 60 seconds

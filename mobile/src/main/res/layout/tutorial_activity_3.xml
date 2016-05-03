@@ -1,14 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:padding="0dp"
-        android:id="@+id/turorial3"
-        android:src="@drawable/turorial3"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    android:layout_height="match_parent"
+    android:background="@color/white_background">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/text_color"
+            android:textSize="30dp"
+            android:text="Cycle"
+            android:layout_above="@+id/adult_select_tutorial"
+            android:layout_centerHorizontal="true" />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_background">
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/age_5"/>
+            <!--android:layout_marginLeft="50dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+        </RelativeLayout>
+    </LinearLayout>
+    <!--<TextView-->
+        <!--android:layout_width="280dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:id="@+id/T51"-->
+        <!--android:textColor="@color/text_color"-->
+        <!--android:textSize="20dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_gravity="center"/>-->
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Cycle between 30 chest compressions and 2 rescue breaths."
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Maintain a steady up-and-down rhythm and do not pause between compressions"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Keep repeating until the patient starts breathing or help arrives"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
+
+    <!--<Button-->
+        <!--android:layout_gravity="center"-->
+        <!--android:padding="10dp"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:textColor="@color/text_color"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/rounded_light"-->
+        <!--android:textSize="15dp"-->
+        <!--android:text="Try On Watch"-->
+        <!--android:id="@+id/try_compression"-->
+
+        <!--/>-->
 </LinearLayout>
+    </ScrollView>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="0dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/page5" />
+    </RelativeLayout>

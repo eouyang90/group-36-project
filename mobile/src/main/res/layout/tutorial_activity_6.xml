@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/text_color"
+            android:textSize="30dp"
+            android:text="Rescue Breath"
+            android:layout_above="@+id/adult_select_tutorial"
+            android:layout_centerHorizontal="true" />
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_background">
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/age_4"/>
+            <!--android:layout_marginLeft="50dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_marginRight="20dp"-->
+        </RelativeLayout>
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/T41"
+            android:textColor="@color/text_color"
+            android:textSize="20dp"
+            android:text="Tilt the head back and lift the chin up"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:src="@drawable/pic_41"
+            android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/T42"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Pinch the nose shut and make a complete seal over the mouth"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:src="@drawable/pic_42"
+            android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/T43"
+        android:textColor="@color/text_color"
+        android:textSize="20dp"
+        android:text="Blow in for 1 second to make the chest clearly rise"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
+    </ScrollView>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="0dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/page4" />
+    </RelativeLayout>
