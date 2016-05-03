@@ -5,19 +5,18 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.util.ArrayList;
 
 /**
  * Created by austinhle on 4/15/16.
@@ -29,15 +28,6 @@ public class HistoryDetailedActivity extends Activity {
         setContentView(R.layout.history_detailed_activity);
 
         /*
-        LayoutInflater inflater = getLayoutInflater();
-
-        String timeDate = getIntent().getStringExtra("time");
-
-        final HistoryDbHelper mDbHelper = new HistoryDbHelper(getApplicationContext());
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
-        */
-
-        /*
         * We will need to get rescue breaths, patient type, total elapsed time, and finish date from
         * the first table, Entries, and the remainder of the information (frequency accuracy, depth
         * accuracy, data points (and number of compressions from number of data points)) from the
@@ -45,27 +35,22 @@ public class HistoryDetailedActivity extends Activity {
         * datetime serves as a key for both tables.
         */
 
-        /*
-        // Define a projection that specifies which columns from the database
-        // you will actually use after this query.
-        String[] projection = {
+        LayoutInflater inflater = getLayoutInflater();
+        String timeDate = getIntent().getStringExtra("time");
+        final HistoryDbHelper mDbHelper = new HistoryDbHelper(getApplicationContext());
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
+        //DepthTimes Query
+        String[] projection_depthTimes = {
                 DepthTimes.COLUMN_TIME,
                 DepthTimes.COLUMN_DEPTH
         };
-
-        // How you want the results sorted in the resulting Cursor
-        String sortOrder =
-                DepthTimes.COLUMN_DATETIME_ID + " DESC";
-
+        String sortOrder = DepthTimes.COLUMN_DATETIME_ID + " DESC";
         String whereArg = DepthTimes.COLUMN_DATETIME_ID + "=?";
-
-        String [] whereVals = {
-                timeDate
-        };
-
-        Cursor c = db.query(
+        String [] whereVals = {timeDate};
+        Cursor c_depthTimes = db.query(
                 DepthTimes.TABLE_NAME,                    // The table to query
-                projection,                               // The columns to return
+                projection_depthTimes,                               // The columns to return
                 whereArg,                                 // The columns for the WHERE clause
                 whereVals,                                // The values for the WHERE clause
                 null,                                     // don't group the rows
@@ -73,76 +58,63 @@ public class HistoryDetailedActivity extends Activity {
                 sortOrder                                 // The sort order
         );
 
-        LinearLayout main = (LinearLayout) findViewById(R.id.hd_body);
+        //Entries Query
+        String[] projection_eitries = {
+                Entries.COLUMN_ELTIME,
+                Entries.COLUMN_SUBJECT_TYPE,
+                Entries.COLUMN_RESCUE_BREATHS
+        };
+        Cursor c_entries = db.query(
+                Entries.TABLE_NAME,                       // The table to query
+                projection_eitries,                       // The columns to return
+                whereArg,                                 // The columns for the WHERE clause
+                whereVals,                                // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );
 
-        if (c.moveToFirst()) {
-
-            while (c.isAfterLast() == false) {
-                View view = inflater.inflate(R.layout.activity_hd_entry, null);
-                final String timems = c.getString(c.getColumnIndexOrThrow(DepthTimes.COLUMN_TIME));
-                TextView text = (TextView) view.findViewById(R.id.timems);
-                text.setText(timems);
-                final String depth = c.getString(c.getColumnIndexOrThrow(DepthTimes.COLUMN_DEPTH));
-                TextView depthText = (TextView) view.findViewById(R.id.depth);
-                depthText.setText(depth);
-                main.addView(view);
-                c.moveToNext();
-            }
-        }
-
-        //***REMOVE ON FINAL PUSH***
-        //db.delete deletes all the rows of the table but keeps the table:
-        db.delete(DepthTimes.TABLE_NAME, null, null);
-        //dropping the table removes the table itself, but the db remains:
-        //db.execSQL("DROP TABLE IF EXISTS " + Entries.TABLE_NAME);
-        */
-
-        
+        //get all views by id
+        ImageView profile_pic = (ImageView)findViewById(R.id.type_pic);
+        TextView date = (TextView)findViewById(R.id.date);
+        TextView minute = (TextView)findViewById(R.id.minute);
+        TextView patient_type = (TextView)findViewById(R.id.patient_type);
+        TextView depth_accuracy = (TextView)findViewById(R.id.depth_accuracy);
+        TextView frequency_accuracy = (TextView)findViewById(R.id.frequency_accuracy);
+        TextView compressions = (TextView)findViewById(R.id.compressions);
+        TextView breaths = (TextView)findViewById(R.id.breaths);
         GraphView graph = (GraphView) findViewById(R.id.graph);
-
         GridLabelRenderer gr = graph.getGridLabelRenderer();
         gr.setGridColor(R.color.chenPrimaryDark);
         gr.setVerticalLabelsColor(R.color.chenPrimaryDark);
         gr.setHorizontalLabelsColor(R.color.chenPrimaryDark);
 
+        //set contents
+        //TODO: set profile_pic, date, minute, patient_type, depth_accuracy, frequency_accuracy, compressions, breaths
 
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
-                new DataPoint(0, 16),
-                new DataPoint(1, 17),
-                new DataPoint(2, 22),
-                new DataPoint(3, 23),
-                new DataPoint(4, 16),
-                new DataPoint(5, 15),
-                new DataPoint(6, 17),
-                new DataPoint(7, 28),
-                new DataPoint(8, 10),
-                new DataPoint(9, 18),
-                new DataPoint(10, 18),
-                new DataPoint(11, 18),
-                new DataPoint(12, 20),
-                new DataPoint(13, 18),
-                new DataPoint(14, 16),
-                new DataPoint(15, 18),
-                new DataPoint(16, 18),
-                new DataPoint(17, 17),
-                new DataPoint(18, 18),
-                new DataPoint(19, 18)
+        //set data points, create an ArrayList
+        ArrayList<DataPoint> data = new ArrayList<DataPoint>();
+        if (c_depthTimes.moveToFirst()) {
+            while (c_depthTimes.isAfterLast() == false) {
+                //TODO: I don't know the format of the time and depth
+//                final String time = c_depthTimes.getString(c_depthTimes.getColumnIndexOrThrow(DepthTimes.COLUMN_TIME));
+//                final String depth = c_depthTimes.getString(c_depthTimes.getColumnIndexOrThrow(DepthTimes.COLUMN_DEPTH));
+//                data.add(new DataPoint(time, depth));
+                c_depthTimes.moveToNext();
+            }
+        }
 
-        });
-
-
+        //convert the arraylist to an Array, and add to LineGraphSeries
+        DataPoint[] dataArr = new DataPoint[data.size()];
+        dataArr = data.toArray(dataArr);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(dataArr);
         graph.addSeries(series);
 
-//        ImageView startCPRButton = (ImageView) findViewById(R.id.history_detail);
-//        startCPRButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent sendIntent;
-//                sendIntent = new Intent(getBaseContext(), MainActivity.class);
-//                Log.d("MainActivity", "Starting up StartCPRActivity1");
-//                startActivity(sendIntent);
-//            }
-//        });
+        //Clear database
+        db.delete(DepthTimes.TABLE_NAME, null, null);
+        db.delete(Entries.TABLE_NAME, null, null);
+        db.execSQL("DROP TABLE IF EXISTS " + DepthTimes.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + Entries.TABLE_NAME);
     }
 
     //handle option selection

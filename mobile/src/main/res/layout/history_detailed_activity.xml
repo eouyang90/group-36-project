@@ -34,7 +34,7 @@
         android:id="@+id/date"
         android:textSize="30dp"
         android:textColor="#0F3F24"
-        android:text="MM DD, YYYY"
+        android:text="May 2, 2016"
         android:layout_marginTop="18dp"
         android:layout_alignParentStart="true"
         android:layout_marginStart="40dp" />
@@ -44,7 +44,7 @@
         android:id="@+id/minute"
         android:textSize="20dp"
         android:textColor="#0F3F24"
-        android:text="x min y sec"
+        android:text="3 min 25 sec"
         android:layout_above="@+id/patient_type"
         android:layout_alignStart="@+id/date" />
     <TextView
@@ -53,7 +53,7 @@
         android:id="@+id/patient_type"
         android:textSize="20dp"
         android:textColor="#0F3F24"
-        android:text="Patient Type: XXX"
+        android:text="Patient Type: Adult"
         android:layout_alignBottom="@+id/type_pic"
         android:layout_alignStart="@+id/minute" />
     <TextView
@@ -63,7 +63,7 @@
         android:id="@+id/depth_accuracy"
         android:textSize="35dp"
         android:textColor="#0F3F24"
-        android:text="xx %"
+        android:text="80 %"
         android:layout_alignTop="@+id/frequency_accuracy"
         android:layout_alignStart="@+id/patient_type" />
     <TextView
@@ -72,7 +72,7 @@
         android:id="@+id/frequency_accuracy"
         android:textSize="35dp"
         android:textColor="#0F3F24"
-        android:text="yy %"
+        android:text="75 %"
         android:layout_marginTop="25dp"
         android:layout_below="@+id/type_pic"
         android:layout_toStartOf="@+id/type_pic" />
@@ -83,17 +83,17 @@
         android:id="@+id/compressions"
         android:textSize="35dp"
         android:textColor="#0F3F24"
-        android:text="xx"
-        android:layout_alignBottom="@+id/history_detail"
-        android:layout_alignStart="@+id/patient_type" />
+        android:text="180"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@+id/history_detail" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/breaths"
         android:textSize="35dp"
         android:textColor="#0F3F24"
-        android:layout_marginLeft="10dp"
-        android:text="yy"
+        android:layout_marginLeft="-5dp"
+        android:text="15"
         android:layout_alignTop="@+id/compressions"
         android:layout_toEndOf="@+id/patient_type" />
 
