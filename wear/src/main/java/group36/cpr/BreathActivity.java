@@ -8,6 +8,8 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.lzyzsd.circleprogress.DonutProgress;
+
 public class BreathActivity extends WearableActivity {
     private final int UPDATE_INTERVAL_MS = 1500; // Update every 1.5 seconds.
     private final int NUM_BREATHS = 2;
@@ -42,18 +44,20 @@ public class BreathActivity extends WearableActivity {
 
     public void updateStatus() {
 //        Log.d("updateStatus", "Number of breaths: " + countedBreaths);
+        DonutProgress progress = (DonutProgress) findViewById(R.id.donut_progress);
         TextView numBreaths = (TextView) findViewById(R.id.num_breaths);
 
         if (countedBreaths == 0) {
+            progress.setProgress(0);
             numBreaths.setText("2");
         } else if (countedBreaths == 1) {
+            progress.setProgress(1);
+            progress.setInnerBottomText("rescue breath left");
             numBreaths.setText("1");
-//            Uncomment when on actual device; I get OOM on emulator with this right now.
-//            bg.setBackground(getResources().getDrawable(R.drawable.breaths1, null));
         } else if (countedBreaths == 2) {
+            progress.setProgress(2);
+            progress.setInnerBottomText("rescue breaths left");
             numBreaths.setText("0");
-//            Uncomment when on actual device; I get OOM on emulator with this right now.
-//            bg.setBackground(getResources().getDrawable(R.drawable.breaths2, null));
         } else if (countedBreaths == 3) {
             Intent i = new Intent(this, CompressionActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

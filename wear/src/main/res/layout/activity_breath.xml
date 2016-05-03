@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.wearable.view.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -8,36 +8,28 @@
     tools:context="group36.cpr.BreathActivity"
     tools:deviceIds="wear">
 
-    <FrameLayout
+    <com.github.lzyzsd.circleprogress.DonutProgress
+        android:id="@+id/donut_progress"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/breaths_bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/breaths0"
-            android:scaleType = "centerCrop"/>
-    </FrameLayout>
+        android:layout_height="match_parent"
+        custom:donut_inner_bottom_text="rescue breaths left"
+        custom:donut_max="2"
+        custom:donut_background_color="@color/bg"
+        custom:donut_unfinished_color="@color/black"
+        custom:donut_finished_color="@color/green"
+        custom:donut_inner_bottom_text_color="@color/black"/>
 
     <TextView
         android:id="@+id/num_breaths"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="2"
-        android:textSize="70dp"
+        android:background="@color/bg"
+        android:text="1"
+        android:textSize="60dp"
         android:textColor="@color/black"
         android:textAlignment="center"
-        android:gravity="center_vertical" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="rescue breaths left"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:textAlignment="center"
-        android:layout_gravity="center_vertical" />
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"/>
 
 </android.support.wearable.view.BoxInsetLayout>
