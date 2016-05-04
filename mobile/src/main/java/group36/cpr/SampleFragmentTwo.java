@@ -37,6 +37,18 @@ public class SampleFragmentTwo extends Fragment {
         } else {
             age_4.setImageResource(R.drawable.infant);
         }
+
+        TextView T42 = (TextView) rootView.findViewById(R.id.T42);
+        if (selection.equals("Infant")) {
+            text1 = "For an infant, make a complete seal with your mouth "
+                    + "over both the mouth and nose";
+        }
+        T42.setText(text1);
+
+        ImageView img42 = (ImageView) rootView.findViewById(R.id.Img42);
+        img42.setImageResource(R.drawable.infant_breath);
+
+
 //        try_compression = (Button)rootView.findViewById(R.id.tu);
 //        try_compression.setText("Try " + selection + " CPR On Watch");
 //        try_compression.setOnClickListener(new View.OnClickListener() {
