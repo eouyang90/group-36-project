@@ -37,8 +37,29 @@ public class SampleFragment extends Fragment {
         } else if (selection.equals("Child")) {
             text1 = "Place one hand directly on top of the other";
         } else {
-            text1 = "Two fingers from each hand \n" +
-                    "Place fingers from one hand directly on top of that from the other";
+            text1 = "Use the pads of two or three fingers of your other hand"
+                    + " to give chest compressions on the center of the chest"
+                    + " just below the nipple line.";
+
+            ImageView img21 = (ImageView) rootView.findViewById(R.id.image_21);
+            img21.setImageResource(R.drawable.infant_position);
+            TextView t22 = (TextView) rootView.findViewById(R.id.T22);
+            t22.setText("If you feel the notch at the end of the infant’s sternum,"
+                    + " move your fingers slightly toward the infant’s head");
+
+            TextView t23 = (TextView) rootView.findViewById(R.id.T23);
+            t23.setText("");
+            TextView t24 = (TextView) rootView.findViewById(R.id.T24);
+            t24.setText("");
+            TextView t25 = (TextView) rootView.findViewById(R.id.T25);
+            t25.setText("");
+
+            ImageView img22 = (ImageView) rootView.findViewById(R.id.image_22);
+            img22.setVisibility(View.INVISIBLE);
+            ImageView img23 = (ImageView) rootView.findViewById(R.id.image_23);
+            img23.setVisibility(View.INVISIBLE);
+            ImageView img24 = (ImageView) rootView.findViewById(R.id.image_24);
+            img24.setVisibility(View.INVISIBLE);
         }
         T21.setText(text1);
 

@@ -36,6 +36,20 @@ public class SampleFragmentPositioning extends Fragment {
             age_1.setImageResource(R.drawable.child);
         } else {
             age_1.setImageResource(R.drawable.infant);
+
+            TextView t14 = (TextView) rootView.findViewById(R.id.T14);
+            t14.setText("Kneel beside the infant's upper chest. Place the pads of two fingers"
+                    + " on the center of the infant's chest, just below the nipple line.");
+            ImageView img14 = (ImageView) rootView.findViewById(R.id.img14);
+            img14.setImageResource(R.drawable.infant_position);
+            TextView t15 = (TextView) rootView.findViewById(R.id.T15);
+            t15.setText("Keep one hand on the infant's forehead to maintain an open airway");
+            ImageView img15 = (ImageView) rootView.findViewById(R.id.img15);
+            img15.setVisibility(View.INVISIBLE);
+            TextView t16 = (TextView) rootView.findViewById(R.id.T16);
+            t16.setText("");
+            ImageView img16 = (ImageView) rootView.findViewById(R.id.img16);
+            img16.setVisibility(View.INVISIBLE);
         }
 
 //        try_breath = (Button)rootView.findViewById(R.id.try_breath);
