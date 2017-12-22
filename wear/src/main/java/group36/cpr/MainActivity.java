@@ -24,7 +24,7 @@ public class MainActivity extends WearableActivity {
         };
 
         // Starts up the compression activity after 5 second delay, but we don't want to launch anything right now.
-        /*Handler mHandler = new Handler();
-        mHandler.postDelayed(mLaunchTask, 5000);*/
+        Handler mHandler = new Handler();
+        mHandler.postDelayed(mLaunchTask, 5000);
     }
 }

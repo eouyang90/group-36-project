@@ -19,7 +19,7 @@ public class WatchListenerService extends WearableListenerService {
         if( messageEvent.getPath().equalsIgnoreCase( MODE ) ) {
             String mode = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
-            if (mode.equals("CPR_start")) {
+            if (mode.startsWith("CPR_start")) {
                 Intent i = new Intent(this, CompressionActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);

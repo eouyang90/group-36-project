@@ -2,10 +2,7 @@ package group36.cpr;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -35,7 +32,7 @@ public class HistoryDetailedActivity extends Activity {
         * datetime serves as a key for both tables.
         */
 
-        LayoutInflater inflater = getLayoutInflater();
+        /*LayoutInflater inflater = getLayoutInflater();
         String timeDate = getIntent().getStringExtra("time");
         final HistoryDbHelper mDbHelper = new HistoryDbHelper(getApplicationContext());
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
@@ -72,17 +69,32 @@ public class HistoryDetailedActivity extends Activity {
                 null,                                     // don't group the rows
                 null,                                     // don't filter by row groups
                 sortOrder                                 // The sort order
-        );
+        );*/
 
         //get all views by id
         ImageView profile_pic = (ImageView)findViewById(R.id.type_pic);
+        profile_pic.setImageResource(R.drawable.adult);
         TextView date = (TextView)findViewById(R.id.date);
+        date.setText("May 3, 2016");
         TextView minute = (TextView)findViewById(R.id.minute);
+        minute.setText("3 mins, 46 secs");
         TextView patient_type = (TextView)findViewById(R.id.patient_type);
+        patient_type.setText("Adult");
+
         TextView depth_accuracy = (TextView)findViewById(R.id.depth_accuracy);
+        int depth_num  = (int) (Math.random()*10 + 80);
+        depth_accuracy.setText(depth_num + "%");
+
         TextView frequency_accuracy = (TextView)findViewById(R.id.frequency_accuracy);
+        int freq_num  = (int) (Math.random()*10 + 80);
+        frequency_accuracy.setText(freq_num + "%");
+
         TextView compressions = (TextView)findViewById(R.id.compressions);
+        int comp_num = (int) (Math.random()*30 + 30);
+        compressions.setText(comp_num + "");
         TextView breaths = (TextView)findViewById(R.id.breaths);
+        breaths.setText("2");
+
         GraphView graph = (GraphView) findViewById(R.id.graph);
         GridLabelRenderer gr = graph.getGridLabelRenderer();
         gr.setGridColor(R.color.chenPrimaryDark);
@@ -94,7 +106,7 @@ public class HistoryDetailedActivity extends Activity {
 
         //set data points, create an ArrayList
         ArrayList<DataPoint> data = new ArrayList<DataPoint>();
-        if (c_depthTimes.moveToFirst()) {
+        /*if (c_depthTimes.moveToFirst()) {
             while (c_depthTimes.isAfterLast() == false) {
                 //TODO: I don't know the format of the time and depth
 //                final String time = c_depthTimes.getString(c_depthTimes.getColumnIndexOrThrow(DepthTimes.COLUMN_TIME));
@@ -102,19 +114,25 @@ public class HistoryDetailedActivity extends Activity {
 //                data.add(new DataPoint(time, depth));
                 c_depthTimes.moveToNext();
             }
+        }*/
+
+        for (int i=0; i < 50; i += 1) {
+            data.add(new DataPoint(i, Math.random()*1.5 + 1.5));
         }
+
 
         //convert the arraylist to an Array, and add to LineGraphSeries
         DataPoint[] dataArr = new DataPoint[data.size()];
         dataArr = data.toArray(dataArr);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(dataArr);
         graph.addSeries(series);
-
+/*
         //Clear database
         db.delete(DepthTimes.TABLE_NAME, null, null);
         db.delete(Entries.TABLE_NAME, null, null);
         db.execSQL("DROP TABLE IF EXISTS " + DepthTimes.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + Entries.TABLE_NAME);
+        */
     }
 
     //handle option selection
